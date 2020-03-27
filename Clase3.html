@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+    
+    <script>
+    /*
+        let i=0;
+        do{
+            i++;
+            document.write(`numero ${i} <br>`);
+        }while(i<0)
+        
+        metodos para cadenas
+        split
+        arrayfrom
+        length
+        splice
+        toLowerCase
+        toUpperCase
+        join
+        concat
+        charAt
+        trim
+        repeat
+        str
+        subst
+        lastindexof
+        indexof
+        replace
+        
+    
+        function repeatedLetters(frase)
+        {
+            var repeated="";
+            let aux1="";
+            let aux2="";
+            let number=0;
+            let fnumber=0;
+            
+            for(i=0;i<frase.length;i++) 
+                {
+                    if(aux1 != frase.charAt(i))
+                        {
+                            aux1=frase.charAt(i);
+                            console.log(`frase changed to ${aux1}` );
+                            fnumber++;
+                        }
+                    
+                    //document.write(`auxiliar 1 ${aux1} <br>`);
+                    if(fnumber<2)
+                        {
+                            //fnumber++;
+                    for(j=0;j<frase.length;j++)
+                        {
+                            //document.write(`letra comparada ${frase.charAt(j)} <br>`);
+                            if(aux1 == frase.charAt(j))//compara letras
+                            {
+                                //document.write(`letra comparada es igual a aux1 <br>`);
+                                aux2 = aux1;
+                                number++;
+                            }
+                        }
+                    
+                            if(number>1)
+                            {
+                                repeated += `[${aux2},${number}]`;
+                          
+                            }
+                            number=0;
+                        }
+                    fnumber=0;
+                }
+            return repeated;
+        }
+        
+        let frase = prompt("Digite una palabra");
+        
+        document.write(repeatedLetters(frase));
+          */
+        
+       //cuantas veces recibe datos
+        let numDatos=null;
+        
+        function getnumericInput()
+        {
+            do{
+            numDatos = Number(prompt(`por favor indique el numero de datos que ingresara`));
+            console.log(numDatos);
+            
+            }while(isNaN(numDatos) || numDatos < 1);
+            return numDatos;
+        }
+        
+        
+        function DiscZero(numD)
+        {
+            let numArray=[]; //creando un array
+            numArray.length = numD; //asignando la longitud del array
+            document.write(`este programa excuira el numero 0 <br>`)
+            for(i=0;i<numD;i++) //variable numD itera
+                {
+                    do{
+                        numArray[i] = Number(prompt(`ingrese el dato ${i+1}`));
+                    }while(isNaN(numArray[i]));
+                    
+                    if(numArray[i]==0)
+                        {
+                            console.log(`numero excluido`);
+                        }else{
+                            document.write(`numero ${numArray[i]} en poscicion ${i} <br>`);
+                        }
+                    
+                }
+            
+        }
+        
+        
+        function OrderInput(numD)
+        {
+            let inputArray=[]; //creando un array
+            let outputArray=[]
+            var aux1=null;
+            var aux2=null;
+            inputArray.length = numD; //asignando la longitud del array
+            outputArray.length = numD;
+            document.write(`este programa ordena la entrada de menor a mayor <br> priorizando letras sobre numeros <br>`)
+            for(i=0;i<numD;i++) //variable numD itera
+                {
+                        inputArray[i] = prompt(`ingrese el dato ${i+1}`);
+                }
+            
+                /*
+                if index 0 > index 1
+                {
+                    index 1 to aux
+                    index 0 to index 2
+                    aux to index 0
+                }
+                else
+                next value index 0 > index 2
+                
+                */
+            outputArray=inputArray;
+            
+            for(i=0;i<numD;i++)
+                {
+                   // aux1 = numArray[i];
+                    outputArray[i]=outputArray[i].charAt(0);
+                 for(j=0;j<numD;j++)
+                    {
+                        if(outputArray[i] < outputArray[j])
+                        {
+                           aux1=outputArray[i];
+                           outputArray[i] = outputArray[j];
+                           outputArray[j] = aux1;
+                        }
+                    
+                    }   
+                    
+                }
+            let numeric="";
+            let characters="";
+            for(i=0;i<outputArray.length;i++)
+                {
+                    
+                    if(isNaN(outputArray[i]))
+                       {
+                        console.log("not a number");
+                        characters+=outputArray[i];
+                       }else{
+                           numeric+=outputArray[i];
+                       }
+                }
+            outputArray = Array.from(characters+numeric);
+            //outputArray.filter(isNaN(outputArray));
+            document.write(outputArray);
+        }
+        
+                       
+        //DiscZero(getnumericInput());
+        OrderInput(getnumericInput());
+        document.write(`<hr>`);
+        
+      
+        
+        
+    </script>
+</body>
+</html>
